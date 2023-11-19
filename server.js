@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
   })
 
   //middleware
-  app.set('views', _dirname + '/views')
+  app.set('views', __dirname + '/views')
   app.set('view engine', 'jax')
   app.engine('jsx', require('express-react-views').createEngine())
   

@@ -11,6 +11,11 @@ const app = express()
 app.get('/', (req, res) => {
     res.send('Welcome to an Awesome App about Breads')
   })
+
+  //middleware
+  app.set('views', _dirname + '/views')
+  app.set('view engine', 'jax')
+  app.engine('jsx', require('express-react-views').createEngine())
   
   // Breads
   const breadsController = require('./controllers/breads_controller.js')

@@ -1,6 +1,7 @@
 
 // dependencies
 const express = require('express')
+const methodOverride = require('method-override')
 
 // configuration
 require('dotenv').config()
@@ -9,17 +10,20 @@ console.log(PORT)
 const app = express()
 
 // ROUTES
-app.get('/', (req, res) => {
+  app.get('/', (req, res) => {
     res.send('Welcome to an Awesome App about Breads')
-  })
-  
+    })
+
 //middleware
   app.set('views', __dirname + '/views')
   app.set('view engine', 'jsx')
   app.engine('jsx', require('express-react-views').createEngine())
   app.use(express.static('public'))
-  // MIDDLEWARE
-app.use(express.urlencoded({extended: true}))
+  app.use(express.urlencoded({extended: true}))
+  app.use(methodOverride('_method'))
+
+
+  
 
 
   // Breads
